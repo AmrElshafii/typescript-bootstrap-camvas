@@ -584,71 +584,270 @@ myGraph.showConnections();
 
 // Write two functions that finds the factorial of any number. One should use recursive, the other should just use a for loop
 
-function findFactorialRecursive(number) {
-    //code here
-    if(number == 1 || number == 0) {
-        return 1
+// function findFactorialRecursive(number) {
+//     //code here
+//     if(number == 1 || number == 0) {
+//         return 1
+//     }
+//     let answer = number * findFactorialRecursive(number - 1)
+//     return answer;
+// }
+
+// console.log(findFactorialRecursive(1))
+
+// function findFactorialIterative(number) {
+//     //code here
+//     let answer = 1
+//     for(let i = 2; i <= number; i++) {
+//         answer *= i
+//     }
+//     return answer;
+// }
+
+// console.log(findFactorialIterative(0))
+
+
+// function fibonaciiI(number) {
+//     if(number == 0) {
+//         return 0
+//     }
+//     if(number == 1) {
+//         return 1
+//     }
+//     let firstprev = 1
+//     let secondprev = 0
+//     for(let i = 1; i < number; i++) {
+//         let temp = firstprev
+//         firstprev = secondprev + firstprev
+//         secondprev = temp
+//     }
+//     return firstprev
+// }
+
+// console.log(fibonaciiI(4))
+// console.log(fibonaciiI(5))
+// console.log(fibonaciiI(8))
+
+// let fibonaciiList = {
+//     0: 0,
+//     1: 1,
+// }
+// function fibonaciiR(number) {
+//     if(number < 2) {
+//         return fibonaciiList[number]
+//     }
+//     fibonaciiR(number - 1)
+//     fibonaciiList[number] = fibonaciiList[number - 1] + fibonaciiList[number - 2]
+//     return fibonaciiList[number]
+// }
+
+// function fibonaciiR(number) {
+//     if(number < 2) {
+//         return number
+//     }
+//     return fibonaciiR(number - 1) + fibonaciiR(number - 2)
+// }
+
+// let t1 = performance.now()
+// console.log(fibonaciiR(43))
+// let t2 = performance.now()
+// console.log(t2 - t1)
+
+// function treePaint(n) {
+//     return treeP('', n)
+// }
+
+// function treeP(acc, number) {
+//     if(number == 0) {
+//         return acc
+//     }
+//     for(let i = 0; i < number; i++) {
+//         acc = `${acc}#`
+//     }
+//     number !== 1 ? acc = acc + '\n' : ''
+//     return treeP(acc, number - 1)
+// }
+
+// console.log(treePaint(10))
+
+// function reverseString(str) {
+//     return rev('', str, str.length)
+// }
+// function rev(acc, str, len) {
+//     debugger;
+//     if(len == 0) {
+//         return acc
+//     }
+//     acc = acc + str[len - 1]
+//     return rev(acc, str, len - 1)
+// }
+
+// console.log(reverseString("amr"))
+
+// const numbers = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0];
+
+// function bubbleSort(array) {
+//     //Code here
+//     let sortedArray = [...array]
+//     function swap(array, i) {
+//         let temp = sortedArray[i + 1]
+//         sortedArray[i + 1] = sortedArray[i]
+//         sortedArray[i] = temp
+//     }
+//     for(let i = 0; i < array.length; i++) {
+//         for(let j = 0; j < array.length - 1; j++) {
+//             if(sortedArray[j] > sortedArray[j + 1]) {
+//                 swap(sortedArray, j)
+//             }
+//         }
+//     }
+//     return sortedArray
+// }
+
+// console.log(bubbleSort(numbers))
+// console.log(numbers);
+
+
+// const numbers = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0];
+
+// function selectionSort(array) {
+//     //Code Here
+//     for(let i = 0; i < array.length; i++) {
+//         debugger;
+//         let min = array[i]
+//         for(let j = 0 + i; j < array.length - 1; j++) {
+//             let max = array[j + 1]
+//             if(min > max) {
+//                 let temp = max
+//                 max = min
+//                 min = temp
+//             }
+//         }
+//         let temp = array[i]
+//         let minInd = array.indexOf(min)
+//         array[i] = min
+//         array[minInd] = temp
+//     }
+//     return array
+// }
+
+// console.log(selectionSort(numbers));
+
+
+// const numbers = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0];
+
+// function insertionSort(array) {
+//     //Code Here
+//     debugger;
+//     for(let i = 0; i < array.length - 1; i++) {
+//         let n1 = array[i]
+//         let n2 = array[i + 1]
+//         if(n1 > n2) {
+//             for(let j = 0; j <= i; j++) {
+//                 if(array[j] > n2) {
+//                     array.splice(j, 0, n2)
+//                     array = array.filter((_, ind) => ind !== i + 2)
+//                     break
+//                 }
+//             }
+//         }
+//     }
+//     return array
+// }
+
+// console.log(insertionSort(numbers));
+
+// const numbers = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0];
+// let numbersf = (n) => {
+//     let arr = []
+//     for(let i = 0; i < n; i++) {
+//         arr.push(Math.floor(Math.random() * n))
+//     }
+//     return arr
+// }
+// let numbers = numbersf(1000)
+
+// function insertionSort(array) {
+//     //Code Here
+//     for(let j = 0; j < array.length; j++) {
+//         for(let i = 0; i < array.length - 1; i++) {
+//             let n1 = array[i]
+//             let n2 = array[i + 1]
+//             if(n1 > n2) {
+//                 array.unshift(n2)
+//                 array = [...array.slice(0, i + 2) , ...array.splice(i + 3, array.length - 1)]
+//             }
+//         }
+//     }
+//     return array
+// }
+
+// function insertionSort(array) {
+//     const length = array.length;
+//     debugger;
+
+//     for (let i = 0; i < length; i++) {
+//         if (array[i] < array[0]) {
+//             // Move number to the first position
+//             array.unshift(array.splice(i, 1)[0]);
+//         } else {
+//             // Find where number should go
+//             for (let j = 1; j < i; j++) {
+//                 if (array[i] > array[j - 1] && array[i] < array[j]) {
+//                     // Move number to the right spot
+//                     array.splice(j, 0, array.splice(i, 1)[0]);
+//                 }
+//             }
+//         }
+//     }
+
+//     return array;
+// }
+
+// let t1 = performance.now()
+// console.log(insertionSort(numbers));
+// let t2 = performance.now()
+// console.log(t2 - t1)
+
+const numbers = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0];
+
+function mergeSort (array) {
+    debugger;
+    if (array.length === 1) {
+        return array
     }
-    let answer = number * findFactorialRecursive(number - 1)
-    return answer;
+    // Split Array in into right and left
+    let left = array.slice(0, array.length / 2)
+    let right = array.slice(array.length / 2, array.length)
+    return merge(
+        mergeSort(left),
+        mergeSort(right)
+    )
 }
 
-console.log(findFactorialRecursive(1))
-
-function findFactorialIterative(number) {
-    //code here
-    let answer = 1
-    for(let i = 2; i <= number; i++) {
-        answer *= i
+function merge(left, right){
+    let sorted = []
+    let assumedLength = left.length + right.length
+    for(let i = 0; i < left.length; i++) {
+        for(let j = 0; j < right.length; j++) {
+            if(left[i] > right[j]) {
+                sorted.push(right[j])
+            }
+            else {
+                sorted.push(left[i])
+                break;
+            }
+            if(j == right.length - 1) {
+                sorted.push(left[i])
+            }
+        }
     }
-    return answer;
+    if(sorted.length != assumedLength) {
+        sorted = [[...sorted] , [...right.slice(sorted.length - left.length + 1)]]
+    }
+    return sorted
 }
 
-console.log(findFactorialIterative(0))
 
-
-function fibonaciiI(number) {
-    if(number == 0) {
-        return 0
-    }
-    if(number == 1) {
-        return 1
-    }
-    let firstprev = 1
-    let secondprev = 0
-    for(let i = 1; i < number; i++) {
-        let temp = firstprev
-        firstprev = secondprev + firstprev
-        secondprev = temp
-    }
-    return firstprev
-}
-
-console.log(fibonaciiI(4))
-console.log(fibonaciiI(5))
-console.log(fibonaciiI(8))
-
-let fibonaciiList = {
-    0: 0,
-    1: 1,
-}
-function fibonaciiR(number) {
-    if(number < 2) {
-        return fibonaciiList[number]
-    }
-    fibonaciiR(number - 1)
-    fibonaciiList[number] = fibonaciiList[number - 1] + fibonaciiList[number - 2]
-    return fibonaciiList[number]
-}
-
-function fibonaciiR(number) {
-    if(number < 2) {
-        return number
-    }
-    return fibonaciiR(number - 1) + fibonaciiR(number - 2)
-}
-
-let t1 = performance.now()
-console.log(fibonaciiR(43))
-let t2 = performance.now()
-console.log(t2 - t1)
+const answer = mergeSort(numbers);
+console.log(answer);
