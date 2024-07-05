@@ -812,7 +812,7 @@ myGraph.showConnections();
 const numbers = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0];
 
 function mergeSort (array) {
-    debugger;
+    // debugger;
     if (array.length === 1) {
         return array
     }
@@ -825,7 +825,8 @@ function mergeSort (array) {
     )
 }
 
-function merge(left, right){
+function merge(left, right) {
+    debugger;
     let sorted = []
     let assumedLength = left.length + right.length
     for(let i = 0; i < left.length; i++) {
@@ -837,13 +838,7 @@ function merge(left, right){
                 sorted.push(left[i])
                 break;
             }
-            if(j == right.length - 1) {
-                sorted.push(left[i])
-            }
         }
-    }
-    if(sorted.length != assumedLength) {
-        sorted = [[...sorted] , [...right.slice(sorted.length - left.length + 1)]]
     }
     return sorted
 }
