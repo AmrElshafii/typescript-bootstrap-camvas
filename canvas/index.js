@@ -809,40 +809,40 @@ myGraph.showConnections();
 // let t2 = performance.now()
 // console.log(t2 - t1)
 
-const numbers = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0];
+// const numbers = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0];
 
-function mergeSort (array) {
-    // debugger;
-    if (array.length === 1) {
-        return array
-    }
-    // Split Array in into right and left
-    let left = array.slice(0, array.length / 2)
-    let right = array.slice(array.length / 2, array.length)
-    return merge(
-        mergeSort(left),
-        mergeSort(right)
-    )
-}
+// function mergeSort (array) {
+//     // debugger;
+//     if (array.length === 1) {
+//         return array
+//     }
+//     // Split Array in into right and left
+//     let left = array.slice(0, array.length / 2)
+//     let right = array.slice(array.length / 2, array.length)
+//     return merge(
+//         mergeSort(left),
+//         mergeSort(right)
+//     )
+// }
 
-function merge(left, right) {
-    debugger;
-    let sorted = []
-    let assumedLength = left.length + right.length
-    for(let i = 0; i < left.length; i++) {
-        for(let j = 0; j < right.length; j++) {
-            if(left[i] > right[j]) {
-                sorted.push(right[j])
-            }
-            else {
-                sorted.push(left[i])
-                break;
-            }
-        }
-    }
-    return sorted
-}
+// function merge(left, right) {
+//     debugger;
+//     let sorted = []
+//     let assumedLength = left.length + right.length
+//     for(let i = 0; i < assumedLength; i++) {
+//         if(left[0] > right[0] || left.length == 0) {
+//             sorted.push(right[0])
+//             right.shift()
+//         }
+//         else if(left[0] <= right[0] || right.length == 0) {
+//             sorted.push(left[0])
+//             left.shift()
+//         }
+        
+//     }
+//     return sorted
+// }
 
 
-const answer = mergeSort(numbers);
-console.log(answer);
+// const answer = mergeSort(numbers);
+// console.log(answer);
