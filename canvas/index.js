@@ -846,3 +846,97 @@ myGraph.showConnections();
 
 // const answer = mergeSort(numbers);
 // console.log(answer);
+
+
+var longestPalindrome = function(s) {
+    debugger
+    let subString = ''
+    let strLength = 0
+    for(let i = 0; i < s.length; i++) {
+        let start = i
+        let end = i
+        while(s[start] == s[end]) {
+            start++
+            end--
+        }
+        start--
+        end++
+        strLength < start - end + 1 ? subString = s.slice(end, start + 1) : ''
+        strLength = start - end + 1
+    }
+    return subString
+};
+
+
+var longestPalindrome = function(s) {
+    debugger
+    if (!s) return "";
+
+    let subString = '';
+    let strLength = 0;
+
+    for (let i = 0; i < s.length; i++) {
+        // Odd length palindromes (center is one character)
+        let start = i, end = i;
+        while (start >= 0 && end < s.length && s[start] === s[end]) {
+            if (end - start + 1 > strLength) {
+                subString = s.slice(start, end + 1);
+                strLength = end - start + 1;
+            }
+            start--;
+            end++;
+        }
+
+        // Even length palindromes (center is between two characters)
+        start = i, end = i + 1;
+        while (start >= 0 && end < s.length && s[start] === s[end]) {
+            if (end - start + 1 > strLength) {
+                subString = s.slice(start, end + 1);
+                strLength = end - start + 1;
+            }
+            start--;
+            end++;
+        }
+    }
+
+    return subString;
+};
+
+
+// var longestPalindrome = function(s) {
+//     debugger
+//     if (!s) {
+//         return "";
+//     }
+
+//     function expandAroundCenter(s, left, right) {
+//         debugger
+//         while (left >= 0 && right < s.length && s[left] === s[right]) {
+//             left--;
+//             right++;
+//         }
+//         return right - left - 1;
+//     }
+
+//     let start = 0;
+//     let end = 0;
+
+//     for (let i = 0; i < s.length; i++) {
+//         const odd = expandAroundCenter(s, i, i);
+//         const even = expandAroundCenter(s, i, i + 1);
+//         const max_len = Math.max(odd, even);
+
+//         if (max_len > end - start) {
+//             start = i - Math.floor((max_len - 1) / 2);
+//             end = i + Math.floor(max_len / 2);
+//         }
+//     }
+
+//     return s.substring(start, end + 1);    
+// };
+
+let t0 = performance.now()
+// console.log(longestPalindrome('abababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababa'))
+console.log(longestPalindrome('babad'))
+let t1 = performance.now()
+console.log(t1 - t0)
